@@ -1,6 +1,6 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from "react";
 
 
@@ -45,7 +45,7 @@ export default function CIViewer() {
 
   useEffect(() => {
     if (!jsonPage) return;
-    
+
     fetch(jsonPage)
       .then(response => response.json())
       .then(setData);
@@ -54,8 +54,6 @@ export default function CIViewer() {
   if (!jsonPage) return (<p>No data</p>);
 
   return (
-    <>
-      <CITable data={data}></CITable>
-    </>
+    <CITable data={data}></CITable>
   );
 }
