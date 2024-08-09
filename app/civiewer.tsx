@@ -43,13 +43,15 @@ export default function CIViewer() {
 
   const jsonPage = searchParams.get('url');
 
-  if (!jsonPage) return (<p>No data</p>);
-
   useEffect(() => {
+    if (!jsonPage) return;
+    
     fetch(jsonPage)
       .then(response => response.json())
       .then(setData);
   }, [jsonPage]);
+
+  if (!jsonPage) return (<p>No data</p>);
 
   return (
     <>
